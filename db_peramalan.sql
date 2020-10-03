@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.9.5deb2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 03, 2020 at 05:48 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- Host: localhost:3306
+-- Generation Time: Oct 03, 2020 at 04:11 AM
+-- Server version: 10.3.24-MariaDB-2
+-- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -71,8 +71,8 @@ INSERT INTO `master` (`id_master`, `kode_master`, `nama`) VALUES
 
 CREATE TABLE `perhitungan` (
   `id_perhitungan` int(5) NOT NULL,
-  `tahun` date NOT NULL,
-  `hasil` int(10) NOT NULL
+  `tahun` varchar(4) NOT NULL,
+  `hasil` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -80,11 +80,7 @@ CREATE TABLE `perhitungan` (
 --
 
 INSERT INTO `perhitungan` (`id_perhitungan`, `tahun`, `hasil`) VALUES
-(48, '0000-00-00', 0),
-(49, '0000-00-00', 0),
-(50, '0000-00-00', 0),
-(51, '0000-00-00', 0),
-(52, '0000-00-00', 0);
+(64, '2019', '223026823.75');
 
 -- --------------------------------------------------------
 
@@ -96,8 +92,8 @@ CREATE TABLE `periode` (
   `id_periode` int(5) NOT NULL,
   `nama` varchar(40) NOT NULL,
   `id_master` int(5) NOT NULL,
-  `tahun` year(4) NOT NULL,
-  `pengeluaran` bigint(15) NOT NULL
+  `tahun` varchar(4) NOT NULL,
+  `pengeluaran` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -105,11 +101,11 @@ CREATE TABLE `periode` (
 --
 
 INSERT INTO `periode` (`id_periode`, `nama`, `id_master`, `tahun`, `pengeluaran`) VALUES
-(1, 'Periode 1', 1, 2015, 100332000),
-(2, 'Periode 2', 2, 2016, 2205500),
-(3, 'Periode 3', 3, 2017, 689237795),
-(4, 'Periode 4', 4, 2018, 100332000),
-(5, 'Periode 5', 5, 2019, 17072500);
+(1, 'Periode 1', 1, '2015', '100332000'),
+(2, 'Periode 2', 2, '2016', '2205500'),
+(3, 'Periode 3', 3, '2017', '689237795'),
+(4, 'Periode 4', 4, '2018', '100332000'),
+(5, 'Periode 5', 5, '2019', '17172500');
 
 -- --------------------------------------------------------
 
@@ -207,13 +203,13 @@ ALTER TABLE `master`
 -- AUTO_INCREMENT for table `perhitungan`
 --
 ALTER TABLE `perhitungan`
-  MODIFY `id_perhitungan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id_perhitungan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `periode`
 --
 ALTER TABLE `periode`
-  MODIFY `id_periode` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_periode` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
